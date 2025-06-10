@@ -1,0 +1,31 @@
+# .gitignore
+.env.local
+
+# Node modules
+/node_modules
+
+# Next.js build output
+/.next/
+/out/ # Para builds estáticos, caso você use `next export` no futuro
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript cache
+.tsbuildinfo
+
+# VSCode directory
+.vscode/ # Se você não quiser compartilhar configurações específicas do VSCode no repositório
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Misc
+.DS_Store
+*.pem
