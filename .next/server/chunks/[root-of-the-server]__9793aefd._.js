@@ -81,9 +81,7 @@ async function POST(request) {
             model: "gemini-1.5-flash"
         });
         const { assunto } = await request.json();
-        // --- ADICIONE ESTE CONSOLE.LOG AQUI ---
         console.log("Recebido assunto na API Route:", assunto);
-        // --- FIM DO CONSOLE.LOG ---
         if (!assunto) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: "Assunto do livro não fornecido para gerar o questionário."
@@ -103,27 +101,30 @@ async function POST(request) {
         Assegure que o campo "correta" seja um booleano (true ou false).
         Certifique-se de que a resposta seja APENAS o JSON, sem nenhum texto explicativo, marcadores de código Markdown (ex: \`\`\`json), ou qualquer outra coisa antes ou depois.
         `;
-        // --- ADICIONE ESTE CONSOLE.LOG PARA VER O PROMPT COMPLETO ---
         console.log("Prompt enviado ao Gemini:", prompt);
-        // --- FIM DO CONSOLE.LOG ---
         const result = await model.generateContent(prompt);
         const response = result.response;
         let text = response.text();
-        // --- ADICIONE ESTE CONSOLE.LOG PARA VER A RESPOSTA BRUTA DO GEMINI ---
         console.log("Resposta bruta do Gemini:", text);
-        // --- FIM DO CONSOLE.LOG ---
-        if (text.startsWith('```json') && text.endsWith('```')) {
-            text = text.substring(7, text.length - 3).trim();
+        // --- INÍCIO DA LÓGICA DE LIMPEZA MAIS ROBUSTA ---
+        // Primeiro, remove a abertura do bloco de código
+        if (text.startsWith('```json')) {
+            text = text.substring('```json'.length);
         }
+        // Segundo, remove o fechamento do bloco de código, se presente, no final
+        if (text.endsWith('```')) {
+            text = text.substring(0, text.length - '```'.length);
+        }
+        // Terceiro, remove quaisquer espaços em branco (incluindo quebras de linha) do início e do fim
+        text = text.trim();
+        // --- FIM DA LÓGICA DE LIMPEZA MAIS ROBUSTA ---
         let questoesGeradas;
         try {
             questoesGeradas = JSON.parse(text);
-            // --- ADICIONE ESTE CONSOLE.LOG PARA VER O JSON PARSEADO ---
             console.log("JSON parseado:", questoesGeradas);
-        // --- FIM DO CONSOLE.LOG ---
         } catch (jsonError) {
             console.error("Erro ao parsear JSON do Gemini:", jsonError);
-            console.error("Texto bruto recebido do Gemini (falha no parse):", text); // Log adicionado aqui também
+            console.error("Texto bruto recebido do Gemini (falha no parse):", text);
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: "Erro ao processar a resposta do Gemini. Formato JSON inválido."
             }, {

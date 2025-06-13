@@ -15,18 +15,16 @@ export async function POST(request: Request) {
 
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        
+
         const { assunto }: RequestBody = await request.json();
 
-        // --- ADICIONE ESTE CONSOLE.LOG AQUI ---
         console.log("Recebido assunto na API Route:", assunto);
-        // --- FIM DO CONSOLE.LOG ---
 
         if (!assunto) {
             return NextResponse.json({ error: "Assunto do livro não fornecido para gerar o questionário." }, { status: 400 });
         }
 
-        const prompt = `Gere 10 questões de múltipla escolha **exclusivamente sobre o conteúdo, personagens, enredo ou temas do livro "${assunto}"**. Cada questão deve ter 4 alternativas (A, B, C, D) e apenas uma resposta correta.
+        const prompt = `Gere 10 questões de múltipla escolha **exclusivamente sobre o conteúdo, personagens, enredo ou temas do livro "${assunto}"**. Cada questão deve ter 4 alternativas (A, B, C, D) e apenas uma resposta correta,  a reposta correta deve ser veridica, nunca invente uma resposta correta.
 
         O formato de saída deve ser um array JSON de objetos, onde cada objeto representa uma questão e contém:
         - "id": um número único para a questão (começando de 1).
@@ -39,31 +37,35 @@ export async function POST(request: Request) {
         Certifique-se de que a resposta seja APENAS o JSON, sem nenhum texto explicativo, marcadores de código Markdown (ex: \`\`\`json), ou qualquer outra coisa antes ou depois.
         `;
 
-        // --- ADICIONE ESTE CONSOLE.LOG PARA VER O PROMPT COMPLETO ---
         console.log("Prompt enviado ao Gemini:", prompt);
-        // --- FIM DO CONSOLE.LOG ---
 
         const result = await model.generateContent(prompt);
         const response = result.response;
         let text = response.text();
 
-        // --- ADICIONE ESTE CONSOLE.LOG PARA VER A RESPOSTA BRUTA DO GEMINI ---
         console.log("Resposta bruta do Gemini:", text);
-        // --- FIM DO CONSOLE.LOG ---
 
-        if (text.startsWith('```json') && text.endsWith('```')) {
-            text = text.substring(7, text.length - 3).trim();
+        // --- INÍCIO DA LÓGICA DE LIMPEZA MAIS ROBUSTA ---
+        // Primeiro, remove a abertura do bloco de código
+        if (text.startsWith('```json')) {
+            text = text.substring('```json'.length);
         }
+        // Segundo, remove o fechamento do bloco de código, se presente, no final
+        if (text.endsWith('```')) {
+            text = text.substring(0, text.length - '```'.length);
+        }
+        // Terceiro, remove quaisquer espaços em branco (incluindo quebras de linha) do início e do fim
+        text = text.trim();
+        // --- FIM DA LÓGICA DE LIMPEZA MAIS ROBUSTA ---
+
 
         let questoesGeradas;
         try {
             questoesGeradas = JSON.parse(text);
-             // --- ADICIONE ESTE CONSOLE.LOG PARA VER O JSON PARSEADO ---
             console.log("JSON parseado:", questoesGeradas);
-            // --- FIM DO CONSOLE.LOG ---
         } catch (jsonError: any) {
             console.error("Erro ao parsear JSON do Gemini:", jsonError);
-            console.error("Texto bruto recebido do Gemini (falha no parse):", text); // Log adicionado aqui também
+            console.error("Texto bruto recebido do Gemini (falha no parse):", text);
             return NextResponse.json({ error: "Erro ao processar a resposta do Gemini. Formato JSON inválido." }, { status: 500 });
         }
 
@@ -83,7 +85,7 @@ export async function POST(request: Request) {
         } else if (error.message.includes("403") || error.message.includes("API key not valid")) {
             errorMessage = "Autenticação falhou com a API do Gemini. Verifique sua chave de API e se ela tem permissões.";
         } else if (error.message.includes("quota")) {
-             errorMessage = "Quota excedida para a API do Gemini. Por favor, verifique seu limite de uso ou tente novamente em um tempo.";
+            errorMessage = "Quota excedida para a API do Gemini. Por favor, verifique seu limite de uso ou tente novamente em um tempo.";
         }
         return NextResponse.json({ error: errorMessage, details: error.message }, { status: 500 });
     }
