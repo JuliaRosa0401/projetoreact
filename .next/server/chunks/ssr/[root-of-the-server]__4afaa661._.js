@@ -109,293 +109,279 @@ function ComponenteQuestao({ questao, indiceQuestao, respostaSelecionada, onResp
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-// app/questionario/page.tsx
+// src/app/questionario/page.tsx
 __turbopack_context__.s({
     "default": (()=>PaginaQuestionario)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"); // Adicionado useCallback
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ComponenteQuestao.tsx [app-ssr] (ecmascript)");
-"use client";
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ComponenteQuestao.tsx [app-ssr] (ecmascript)"); // Caminho relativo corrigido para sua estrutura
+"use client"; // Importante: indica que é um Client Component
 ;
 ;
 ;
 ;
 function PaginaQuestionario() {
-    const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
-    const assunto = searchParams.get('assunto');
-    const [questoes, setQuestoes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [respostasUsuario, setRespostasUsuario] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]); // Armazena o índice da alternativa escolhida
-    const [mostrarResultado, setMostrarResultado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [pontuacao, setPontuacao] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
-    // Mock de dados para simular o questionário
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (assunto) {
-            // Aqui no futuro faremos a chamada à API do Gemini
-            // Por enquanto, usaremos dados mockados
-            const questoesMock = [
-                {
-                    id: 1,
-                    pergunta: `Qual a capital do Brasil, segundo o livro de Geografia: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Rio de Janeiro",
-                            correta: false
-                        },
-                        {
-                            texto: "Brasília",
-                            correta: true
-                        },
-                        {
-                            texto: "São Paulo",
-                            correta: false
-                        },
-                        {
-                            texto: "Belo Horizonte",
-                            correta: false
-                        }
-                    ]
+    // Hooks do Next.js e React para gerenciar estado e navegação
+    const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])(); // Para ler parâmetros da URL
+    const assunto = searchParams.get('assunto'); // Pega o assunto passado pela URL
+    // Estados do componente
+    const [questoes, setQuestoes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]); // Armazena as questões geradas
+    const [respostasUsuario, setRespostasUsuario] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]); // Armazena o índice da alternativa escolhida pelo usuário para cada questão
+    const [mostrarResultado, setMostrarResultado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false); // Controla a exibição do gabarito e pontuação
+    const [pontuacao, setPontuacao] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0); // Pontuação final do usuário
+    const [carregando, setCarregando] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true); // Indica se as questões estão sendo carregadas
+    const [erro, setErro] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null); // Armazena mensagens de erro
+    // Função para buscar as questões da nossa API interna
+    // Usamos useCallback para memorizar a função e evitar recriações desnecessárias,
+    // otimizando o useEffect.
+    const buscarQuestoes = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async ()=>{
+        if (!assunto) {
+            setErro("Assunto do livro não informado. Por favor, volte e informe um livro.");
+            setCarregando(false);
+            return;
+        }
+        setCarregando(true); // Ativa o estado de carregamento
+        setErro(null); // Limpa qualquer erro anterior
+        try {
+            // Realiza a chamada POST para nossa API Route
+            const response = await fetch('/api/gerar-questionario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                {
-                    id: 2,
-                    pergunta: `Quem escreveu o livro "Dom Casmurro", mencionado no livro de Literatura: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Machado de Assis",
-                            correta: true
-                        },
-                        {
-                            texto: "José de Alencar",
-                            correta: false
-                        },
-                        {
-                            texto: "Graciliano Ramos",
-                            correta: false
-                        },
-                        {
-                            texto: "Clarice Lispector",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 3,
-                    pergunta: `Qual o principal bioma abordado no livro de Biologia: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Floresta Amazônica",
-                            correta: true
-                        },
-                        {
-                            texto: "Cerrado",
-                            correta: false
-                        },
-                        {
-                            texto: "Mata Atlântica",
-                            correta: false
-                        },
-                        {
-                            texto: "Caatinga",
-                            correta: false
-                        }
-                    ]
-                },
-                // Adicione mais questões mockadas para ter 10 no total, ou adapte para testes
-                {
-                    id: 4,
-                    pergunta: `Em que ano o Brasil se tornou independente, de acordo com o livro de História: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "1820",
-                            correta: false
-                        },
-                        {
-                            texto: "1822",
-                            correta: true
-                        },
-                        {
-                            texto: "1825",
-                            correta: false
-                        },
-                        {
-                            texto: "1830",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 5,
-                    pergunta: `Qual planeta é conhecido como o "Planeta Vermelho", segundo o livro de Astronomia: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Vênus",
-                            correta: false
-                        },
-                        {
-                            texto: "Marte",
-                            correta: true
-                        },
-                        {
-                            texto: "Júpiter",
-                            correta: false
-                        },
-                        {
-                            texto: "Saturno",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 6,
-                    pergunta: `Qual elemento químico tem o símbolo 'O', conforme o livro de Química: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Ouro",
-                            correta: false
-                        },
-                        {
-                            texto: "Oxigênio",
-                            correta: true
-                        },
-                        {
-                            texto: "Ozônio",
-                            correta: false
-                        },
-                        {
-                            texto: "Cobre",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 7,
-                    pergunta: `Quem foi o primeiro presidente do Brasil, segundo o livro de Cívica: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Deodoro da Fonseca",
-                            correta: true
-                        },
-                        {
-                            texto: "Floriano Peixoto",
-                            correta: false
-                        },
-                        {
-                            texto: "Getúlio Vargas",
-                            correta: false
-                        },
-                        {
-                            texto: "Juscelino Kubitschek",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 8,
-                    pergunta: `Qual a fórmula da água, de acordo com o livro de Ciências: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "CO2",
-                            correta: false
-                        },
-                        {
-                            texto: "H2O",
-                            correta: true
-                        },
-                        {
-                            texto: "NaCl",
-                            correta: false
-                        },
-                        {
-                            texto: "O2",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 9,
-                    pergunta: `Em qual continente fica o Egito, segundo o livro de Geografia: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Ásia",
-                            correta: false
-                        },
-                        {
-                            texto: "Europa",
-                            correta: false
-                        },
-                        {
-                            texto: "África",
-                            correta: true
-                        },
-                        {
-                            texto: "América do Sul",
-                            correta: false
-                        }
-                    ]
-                },
-                {
-                    id: 10,
-                    pergunta: `Qual o nome do Oceano que banha a costa leste do Brasil, conforme o livro de Geografia: "${assunto}"?`,
-                    alternativas: [
-                        {
-                            texto: "Pacífico",
-                            correta: false
-                        },
-                        {
-                            texto: "Índico",
-                            correta: false
-                        },
-                        {
-                            texto: "Atlântico",
-                            correta: true
-                        },
-                        {
-                            texto: "Antártico",
-                            correta: false
-                        }
-                    ]
-                }
-            ];
-            setQuestoes(questoesMock);
-            setRespostasUsuario(new Array(questoesMock.length).fill(-1)); // Inicializa com -1 (nenhuma resposta)
+                body: JSON.stringify({
+                    assunto
+                })
+            });
+            // Verifica se a resposta da API foi bem-sucedida
+            if (!response.ok) {
+                const errorData = await response.json(); // Pega a mensagem de erro do corpo da resposta
+                throw new Error(errorData.error || `Erro ao gerar questionário: ${response.statusText}`);
+            }
+            // Converte a resposta para JSON e tipa como um array de Questao
+            const data = await response.json();
+            // Garante que estamos usando no máximo 10 questões, conforme o requisito
+            const questoesLimitas = data.slice(0, 10);
+            setQuestoes(questoesLimitas);
+            // Inicializa o array de respostas do usuário com -1 para cada questão
+            setRespostasUsuario(new Array(questoesLimitas.length).fill(-1));
+        } catch (err) {
+            // Captura e exibe erros que ocorrem durante a chamada ou processamento
+            console.error("Falha ao buscar questões:", err);
+            setErro(`Não foi possível gerar o questionário. Detalhes: ${err.message}`);
+        } finally{
+            // Finaliza o estado de carregamento, independente do sucesso ou falha
+            setCarregando(false);
         }
     }, [
         assunto
-    ]);
+    ]); // A função `buscarQuestoes` só muda se o `assunto` mudar
+    // useEffect para chamar `buscarQuestoes` quando o componente é montado
+    // ou quando a função `buscarQuestoes` (que depende do assunto) muda.
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        console.log("useEffect na página do questionário disparado. Chamando buscarQuestoes.");
+        buscarQuestoes();
+    }, [
+        buscarQuestoes
+    ]); // Dispara a busca quando a dependência (buscarQuestoes) é atualizada
+    // Lida com a seleção de uma alternativa por parte do usuário
     const handleRespostaSelecionada = (idQuestao, indiceAlternativa)=>{
         setRespostasUsuario((prevRespostas)=>{
             const novasRespostas = [
                 ...prevRespostas
             ];
+            // Encontra o índice da questão no array de questões
             const indiceQuestao = questoes.findIndex((q)=>q.id === idQuestao);
             if (indiceQuestao !== -1) {
+                // Atualiza a resposta para a questão específica
                 novasRespostas[indiceQuestao] = indiceAlternativa;
             }
             return novasRespostas;
         });
     };
+    // Lida com o envio do questionário
     const handleSubmit = ()=>{
         let pontuacaoFinal = 0;
         questoes.forEach((questao, indice)=>{
             const respostaDada = respostasUsuario[indice];
+            // Verifica se o usuário respondeu e se a resposta está correta
             if (respostaDada !== -1 && questao.alternativas[respostaDada]?.correta) {
                 pontuacaoFinal++;
             }
         });
-        setPontuacao(pontuacaoFinal);
-        setMostrarResultado(true);
+        setPontuacao(pontuacaoFinal); // Define a pontuação final
+        setMostrarResultado(true); // Exibe o gabarito e a pontuação
     };
+    // Renderização condicional baseada nos estados
     if (!assunto) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "min-h-screen flex items-center justify-center bg-gray-100 text-red-600 font-bold",
-            children: "Assunto não informado. Por favor, volte e informe um assunto."
+            className: "min-h-screen flex items-center justify-center bg-gray-100 text-red-600 font-bold p-4 text-center",
+            children: "Assunto do livro não informado. Por favor, volte para a página inicial e informe um livro."
         }, void 0, false, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 165,
+            lineNumber: 118,
             columnNumber: 13
         }, this);
     }
+    if (carregando) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                    className: "animate-spin h-10 w-10 text-blue-600 mb-4",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                            className: "opacity-25",
+                            cx: "12",
+                            cy: "12",
+                            r: "10",
+                            stroke: "currentColor",
+                            strokeWidth: "4"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/questionario/page.tsx",
+                            lineNumber: 128,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            className: "opacity-75",
+                            fill: "currentColor",
+                            d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/questionario/page.tsx",
+                            lineNumber: 129,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/questionario/page.tsx",
+                    lineNumber: 127,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-xl font-semibold text-gray-700",
+                    children: [
+                        'Gerando 10 questões sobre "',
+                        assunto,
+                        '"... Por favor, aguarde.'
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/questionario/page.tsx",
+                    lineNumber: 131,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-gray-500 text-sm mt-2",
+                    children: "Isso pode levar alguns segundos dependendo da complexidade do assunto."
+                }, void 0, false, {
+                    fileName: "[project]/src/app/questionario/page.tsx",
+                    lineNumber: 132,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/app/questionario/page.tsx",
+            lineNumber: 126,
+            columnNumber: 13
+        }, this);
+    }
+    if (erro) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "min-h-screen flex items-center justify-center bg-gray-100 p-4",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg shadow-md max-w-md w-full",
+                role: "alert",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "font-bold text-lg",
+                        children: "Erro ao carregar questionário!"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 141,
+                        columnNumber: 21
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "mt-2 text-sm",
+                        children: erro
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 142,
+                        columnNumber: 21
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: buscarQuestoes,
+                        className: "mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out",
+                        children: "Tentar Novamente"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 143,
+                        columnNumber: 21
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/questionario/page.tsx",
+                lineNumber: 140,
+                columnNumber: 17
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/src/app/questionario/page.tsx",
+            lineNumber: 139,
+            columnNumber: 13
+        }, this);
+    }
+    if (questoes.length === 0 && !carregando && !erro) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "min-h-screen flex items-center justify-center bg-gray-100 p-4",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-md max-w-md w-full",
+                role: "alert",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "font-bold text-lg",
+                        children: "Nenhuma questão gerada."
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 158,
+                        columnNumber: 21
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "mt-2 text-sm",
+                        children: [
+                            'A API do Gemini não conseguiu gerar questões para o assunto "',
+                            assunto,
+                            '". Isso pode ocorrer se o assunto for muito específico ou incomum. Tente um assunto diferente ou reformule.'
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 159,
+                        columnNumber: 21
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: buscarQuestoes,
+                        className: "mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out",
+                        children: "Tentar Novamente"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 160,
+                        columnNumber: 21
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/questionario/page.tsx",
+                lineNumber: 157,
+                columnNumber: 17
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/src/app/questionario/page.tsx",
+            lineNumber: 156,
+            columnNumber: 13
+        }, this);
+    }
+    // Renderização principal do questionário
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -410,107 +396,107 @@ function PaginaQuestionario() {
                             children: assunto
                         }, void 0, false, {
                             fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 175,
+                            lineNumber: 176,
                             columnNumber: 41
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 174,
+                    lineNumber: 175,
                     columnNumber: 17
                 }, this),
-                questoes.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-center text-gray-600",
-                    children: "Carregando questões..."
-                }, void 0, false, {
-                    fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 179,
-                    columnNumber: 21
-                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-                    children: [
-                        questoes.map((questao, indice)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                questao: questao,
-                                indiceQuestao: indice + 1,
-                                respostaSelecionada: respostasUsuario[indice],
-                                onRespostaSelecionada: handleRespostaSelecionada,
-                                mostrarGabarito: mostrarResultado
-                            }, questao.id, false, {
-                                fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 183,
-                                columnNumber: 29
-                            }, this)),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-8 text-center",
-                            children: !mostrarResultado ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: handleSubmit,
-                                className: "bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105",
-                                children: "Enviar Respostas"
+                questoes.map((questao, indice)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        questao: questao,
+                        indiceQuestao: indice + 1,
+                        respostaSelecionada: respostasUsuario[indice],
+                        onRespostaSelecionada: handleRespostaSelecionada,
+                        mostrarGabarito: mostrarResultado
+                    }, questao.id, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 180,
+                        columnNumber: 21
+                    }, this)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mt-8 text-center",
+                    children: !mostrarResultado ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: handleSubmit,
+                        className: "bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105",
+                        // Desabilita o botão se não houver 10 questões ou se alguma resposta ainda estiver em -1
+                        disabled: questoes.length !== 10 || respostasUsuario.some((resp)=>resp === -1),
+                        children: "Enviar Respostas"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 192,
+                        columnNumber: 25
+                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-lg shadow-md",
+                        role: "alert",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "font-bold text-lg",
+                                children: "Questionário Finalizado!"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 195,
-                                columnNumber: 33
-                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4",
-                                role: "alert",
+                                lineNumber: 202,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xl mt-2",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "font-bold text-lg",
-                                        children: "Questionário Finalizado!"
+                                    "Você acertou ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "font-extrabold text-2xl",
+                                        children: pontuacao
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/questionario/page.tsx",
                                         lineNumber: 203,
-                                        columnNumber: 37
+                                        columnNumber: 70
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xl mt-2",
-                                        children: [
-                                            "Você acertou ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "font-extrabold text-2xl",
-                                                children: pontuacao
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/questionario/page.tsx",
-                                                lineNumber: 204,
-                                                columnNumber: 78
-                                            }, this),
-                                            " de ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "font-extrabold text-2xl",
-                                                children: questoes.length
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/questionario/page.tsx",
-                                                lineNumber: 204,
-                                                columnNumber: 142
-                                            }, this),
-                                            " questões."
-                                        ]
-                                    }, void 0, true, {
+                                    " de ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "font-extrabold text-2xl",
+                                        children: questoes.length
+                                    }, void 0, false, {
                                         fileName: "[project]/src/app/questionario/page.tsx",
-                                        lineNumber: 204,
-                                        columnNumber: 37
-                                    }, this)
+                                        lineNumber: 203,
+                                        columnNumber: 134
+                                    }, this),
+                                    " questões."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 202,
-                                columnNumber: 33
+                                lineNumber: 203,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>window.location.href = '/',
+                                className: "mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out",
+                                children: "Fazer novo questionário"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/questionario/page.tsx",
+                                lineNumber: 204,
+                                columnNumber: 29
                             }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 193,
-                            columnNumber: 25
-                        }, this)
-                    ]
-                }, void 0, true)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/questionario/page.tsx",
+                        lineNumber: 201,
+                        columnNumber: 25
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/questionario/page.tsx",
+                    lineNumber: 190,
+                    columnNumber: 17
+                }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 173,
+            lineNumber: 174,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/questionario/page.tsx",
-        lineNumber: 172,
+        lineNumber: 173,
         columnNumber: 9
     }, this);
 }

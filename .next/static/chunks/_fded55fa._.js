@@ -78,22 +78,22 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/app/questionario/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
-// src/app/questionario/page.tsx
+// app/questionario/page.tsx
 __turbopack_context__.s({
     "default": (()=>PaginaQuestionario)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"); // Adicionado useCallback
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ComponenteQuestao.tsx [app-client] (ecmascript)"); // Caminho relativo corrigido para sua estrutura
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ComponenteQuestao.tsx [app-client] (ecmascript)"); // Caminho relativo corrigido
 ;
 var _s = __turbopack_context__.k.signature();
-"use client"; // Importante: indica que é um Client Component
+"use client";
 ;
 ;
 ;
@@ -160,7 +160,6 @@ function PaginaQuestionario() {
     // ou quando a função `buscarQuestoes` (que depende do assunto) muda.
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "PaginaQuestionario.useEffect": ()=>{
-            console.log("useEffect na página do questionário disparado. Chamando buscarQuestoes.");
             buscarQuestoes();
         }
     }["PaginaQuestionario.useEffect"], [
@@ -200,8 +199,8 @@ function PaginaQuestionario() {
             className: "min-h-screen flex items-center justify-center bg-gray-100 text-red-600 font-bold p-4 text-center",
             children: "Assunto do livro não informado. Por favor, volte para a página inicial e informe um livro."
         }, void 0, false, {
-            fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 118,
+            fileName: "[project]/src/app/page.tsx",
+            lineNumber: 117,
             columnNumber: 13
         }, this);
     }
@@ -223,8 +222,8 @@ function PaginaQuestionario() {
                             stroke: "currentColor",
                             strokeWidth: "4"
                         }, void 0, false, {
-                            fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 128,
+                            fileName: "[project]/src/app/page.tsx",
+                            lineNumber: 127,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -232,14 +231,14 @@ function PaginaQuestionario() {
                             fill: "currentColor",
                             d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         }, void 0, false, {
-                            fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 129,
+                            fileName: "[project]/src/app/page.tsx",
+                            lineNumber: 128,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 127,
+                    fileName: "[project]/src/app/page.tsx",
+                    lineNumber: 126,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -250,22 +249,22 @@ function PaginaQuestionario() {
                         '"... Por favor, aguarde.'
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 131,
+                    fileName: "[project]/src/app/page.tsx",
+                    lineNumber: 130,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-gray-500 text-sm mt-2",
                     children: "Isso pode levar alguns segundos dependendo da complexidade do assunto."
                 }, void 0, false, {
-                    fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 132,
+                    fileName: "[project]/src/app/page.tsx",
+                    lineNumber: 131,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 126,
+            fileName: "[project]/src/app/page.tsx",
+            lineNumber: 125,
             columnNumber: 13
         }, this);
     }
@@ -280,16 +279,16 @@ function PaginaQuestionario() {
                         className: "font-bold text-lg",
                         children: "Erro ao carregar questionário!"
                     }, void 0, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 141,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 140,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "mt-2 text-sm",
                         children: erro
                     }, void 0, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 142,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 141,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -297,19 +296,19 @@ function PaginaQuestionario() {
                         className: "mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out",
                         children: "Tentar Novamente"
                     }, void 0, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 143,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 142,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "[project]/src/app/questionario/page.tsx",
-                lineNumber: 140,
+                fileName: "[project]/src/app/page.tsx",
+                lineNumber: 139,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
-            fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 139,
+            fileName: "[project]/src/app/page.tsx",
+            lineNumber: 138,
             columnNumber: 13
         }, this);
     }
@@ -324,8 +323,8 @@ function PaginaQuestionario() {
                         className: "font-bold text-lg",
                         children: "Nenhuma questão gerada."
                     }, void 0, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 158,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 157,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -336,8 +335,8 @@ function PaginaQuestionario() {
                             '". Isso pode ocorrer se o assunto for muito específico ou incomum. Tente um assunto diferente ou reformule.'
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 159,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 158,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -345,19 +344,19 @@ function PaginaQuestionario() {
                         className: "mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out",
                         children: "Tentar Novamente"
                     }, void 0, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 160,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 159,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "[project]/src/app/questionario/page.tsx",
-                lineNumber: 157,
+                fileName: "[project]/src/app/page.tsx",
+                lineNumber: 156,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
-            fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 156,
+            fileName: "[project]/src/app/page.tsx",
+            lineNumber: 155,
             columnNumber: 13
         }, this);
     }
@@ -375,14 +374,14 @@ function PaginaQuestionario() {
                             className: "text-blue-600",
                             children: assunto
                         }, void 0, false, {
-                            fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 176,
+                            fileName: "[project]/src/app/page.tsx",
+                            lineNumber: 175,
                             columnNumber: 41
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 175,
+                    fileName: "[project]/src/app/page.tsx",
+                    lineNumber: 174,
                     columnNumber: 17
                 }, this),
                 questoes.map((questao, indice)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -392,8 +391,8 @@ function PaginaQuestionario() {
                         onRespostaSelecionada: handleRespostaSelecionada,
                         mostrarGabarito: mostrarResultado
                     }, questao.id, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 180,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 179,
                         columnNumber: 21
                     }, this)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -405,8 +404,8 @@ function PaginaQuestionario() {
                         disabled: questoes.length !== 10 || respostasUsuario.some((resp)=>resp === -1),
                         children: "Enviar Respostas"
                     }, void 0, false, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 192,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 191,
                         columnNumber: 25
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-lg shadow-md",
@@ -416,8 +415,8 @@ function PaginaQuestionario() {
                                 className: "font-bold text-lg",
                                 children: "Questionário Finalizado!"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 202,
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 201,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -428,8 +427,8 @@ function PaginaQuestionario() {
                                         className: "font-extrabold text-2xl",
                                         children: pontuacao
                                     }, void 0, false, {
-                                        fileName: "[project]/src/app/questionario/page.tsx",
-                                        lineNumber: 203,
+                                        fileName: "[project]/src/app/page.tsx",
+                                        lineNumber: 202,
                                         columnNumber: 70
                                     }, this),
                                     " de ",
@@ -437,15 +436,15 @@ function PaginaQuestionario() {
                                         className: "font-extrabold text-2xl",
                                         children: questoes.length
                                     }, void 0, false, {
-                                        fileName: "[project]/src/app/questionario/page.tsx",
-                                        lineNumber: 203,
+                                        fileName: "[project]/src/app/page.tsx",
+                                        lineNumber: 202,
                                         columnNumber: 134
                                     }, this),
                                     " questões."
                                 ]
                             }, void 0, true, {
-                                fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 203,
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 202,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -453,30 +452,30 @@ function PaginaQuestionario() {
                                 className: "mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out",
                                 children: "Fazer novo questionário"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 204,
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 203,
                                 columnNumber: 29
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 201,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 200,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 190,
+                    fileName: "[project]/src/app/page.tsx",
+                    lineNumber: 189,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 174,
+            fileName: "[project]/src/app/page.tsx",
+            lineNumber: 173,
             columnNumber: 13
         }, this)
     }, void 0, false, {
-        fileName: "[project]/src/app/questionario/page.tsx",
-        lineNumber: 173,
+        fileName: "[project]/src/app/page.tsx",
+        lineNumber: 172,
         columnNumber: 9
     }, this);
 }
@@ -720,4 +719,4 @@ module.exports = __turbopack_context__.r("[project]/node_modules/next/dist/clien
 }}),
 }]);
 
-//# sourceMappingURL=_d73df110._.js.map
+//# sourceMappingURL=_fded55fa._.js.map
