@@ -89,7 +89,7 @@ async function POST(request) {
                 status: 400
             });
         }
-        const prompt = `Gere 10 questões de múltipla escolha **exclusivamente sobre o conteúdo, personagens, enredo ou temas do livro "${assunto}"**. Cada questão deve ter 4 alternativas (A, B, C, D) e apenas uma resposta correta.
+        const prompt = `Gere 10 questões de múltipla escolha **exclusivamente sobre o conteúdo, personagens, enredo ou temas do livro "${assunto}"**. Cada questão deve ter 4 alternativas (A, B, C, D) e apenas uma resposta correta,  a reposta correta deve ser veridica, nunca invente uma resposta correta.
 
         O formato de saída deve ser um array JSON de objetos, onde cada objeto representa uma questão e contém:
         - "id": um número único para a questão (começando de 1).

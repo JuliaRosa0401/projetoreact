@@ -114,38 +114,32 @@ __turbopack_context__.s({
     "default": (()=>PaginaQuestionario)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"); // Adicionado useCallback
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ComponenteQuestao.tsx [app-ssr] (ecmascript)"); // Caminho relativo corrigido para sua estrutura
-"use client"; // Importante: indica que é um Client Component
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ComponenteQuestao.tsx [app-ssr] (ecmascript)");
+"use client";
 ;
 ;
 ;
 ;
 function PaginaQuestionario() {
-    // Hooks do Next.js e React para gerenciar estado e navegação
-    const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])(); // Para ler parâmetros da URL
-    const assunto = searchParams.get('assunto'); // Pega o assunto passado pela URL
-    // Estados do componente
-    const [questoes, setQuestoes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]); // Armazena as questões geradas
-    const [respostasUsuario, setRespostasUsuario] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]); // Armazena o índice da alternativa escolhida pelo usuário para cada questão
-    const [mostrarResultado, setMostrarResultado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false); // Controla a exibição do gabarito e pontuação
-    const [pontuacao, setPontuacao] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0); // Pontuação final do usuário
-    const [carregando, setCarregando] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true); // Indica se as questões estão sendo carregadas
-    const [erro, setErro] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null); // Armazena mensagens de erro
-    // Função para buscar as questões da nossa API interna
-    // Usamos useCallback para memorizar a função e evitar recriações desnecessárias,
-    // otimizando o useEffect.
+    const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
+    const assunto = searchParams.get('assunto');
+    const [questoes, setQuestoes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [respostasUsuario, setRespostasUsuario] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [mostrarResultado, setMostrarResultado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [pontuacao, setPontuacao] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [carregando, setCarregando] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [erro, setErro] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const buscarQuestoes = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async ()=>{
         if (!assunto) {
             setErro("Assunto do livro não informado. Por favor, volte e informe um livro.");
             setCarregando(false);
             return;
         }
-        setCarregando(true); // Ativa o estado de carregamento
-        setErro(null); // Limpa qualquer erro anterior
+        setCarregando(true);
+        setErro(null);
         try {
-            // Realiza a chamada POST para nossa API Route
             const response = await fetch('/api/gerar-questionario', {
                 method: 'POST',
                 headers: {
@@ -155,73 +149,59 @@ function PaginaQuestionario() {
                     assunto
                 })
             });
-            // Verifica se a resposta da API foi bem-sucedida
             if (!response.ok) {
-                const errorData = await response.json(); // Pega a mensagem de erro do corpo da resposta
+                const errorData = await response.json();
                 throw new Error(errorData.error || `Erro ao gerar questionário: ${response.statusText}`);
             }
-            // Converte a resposta para JSON e tipa como um array de Questao
             const data = await response.json();
-            // Garante que estamos usando no máximo 10 questões, conforme o requisito
             const questoesLimitas = data.slice(0, 10);
             setQuestoes(questoesLimitas);
-            // Inicializa o array de respostas do usuário com -1 para cada questão
             setRespostasUsuario(new Array(questoesLimitas.length).fill(-1));
         } catch (err) {
-            // Captura e exibe erros que ocorrem durante a chamada ou processamento
             console.error("Falha ao buscar questões:", err);
             setErro(`Não foi possível gerar o questionário. Detalhes: ${err.message}`);
         } finally{
-            // Finaliza o estado de carregamento, independente do sucesso ou falha
             setCarregando(false);
         }
     }, [
         assunto
-    ]); // A função `buscarQuestoes` só muda se o `assunto` mudar
-    // useEffect para chamar `buscarQuestoes` quando o componente é montado
-    // ou quando a função `buscarQuestoes` (que depende do assunto) muda.
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         console.log("useEffect na página do questionário disparado. Chamando buscarQuestoes.");
         buscarQuestoes();
     }, [
         buscarQuestoes
-    ]); // Dispara a busca quando a dependência (buscarQuestoes) é atualizada
-    // Lida com a seleção de uma alternativa por parte do usuário
+    ]);
     const handleRespostaSelecionada = (idQuestao, indiceAlternativa)=>{
         setRespostasUsuario((prevRespostas)=>{
             const novasRespostas = [
                 ...prevRespostas
             ];
-            // Encontra o índice da questão no array de questões
             const indiceQuestao = questoes.findIndex((q)=>q.id === idQuestao);
             if (indiceQuestao !== -1) {
-                // Atualiza a resposta para a questão específica
                 novasRespostas[indiceQuestao] = indiceAlternativa;
             }
             return novasRespostas;
         });
     };
-    // Lida com o envio do questionário
     const handleSubmit = ()=>{
         let pontuacaoFinal = 0;
         questoes.forEach((questao, indice)=>{
             const respostaDada = respostasUsuario[indice];
-            // Verifica se o usuário respondeu e se a resposta está correta
             if (respostaDada !== -1 && questao.alternativas[respostaDada]?.correta) {
                 pontuacaoFinal++;
             }
         });
-        setPontuacao(pontuacaoFinal); // Define a pontuação final
-        setMostrarResultado(true); // Exibe o gabarito e a pontuação
+        setPontuacao(pontuacaoFinal);
+        setMostrarResultado(true);
     };
-    // Renderização condicional baseada nos estados
     if (!assunto) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "min-h-screen flex items-center justify-center bg-gray-100 text-red-600 font-bold p-4 text-center",
             children: "Assunto do livro não informado. Por favor, volte para a página inicial e informe um livro."
         }, void 0, false, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 118,
+            lineNumber: 97,
             columnNumber: 13
         }, this);
     }
@@ -244,7 +224,7 @@ function PaginaQuestionario() {
                             strokeWidth: "4"
                         }, void 0, false, {
                             fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 128,
+                            lineNumber: 107,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -253,13 +233,13 @@ function PaginaQuestionario() {
                             d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         }, void 0, false, {
                             fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 129,
+                            lineNumber: 108,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 127,
+                    lineNumber: 106,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -271,7 +251,7 @@ function PaginaQuestionario() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 131,
+                    lineNumber: 110,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -279,13 +259,13 @@ function PaginaQuestionario() {
                     children: "Isso pode levar alguns segundos dependendo da complexidade do assunto."
                 }, void 0, false, {
                     fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 132,
+                    lineNumber: 111,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 126,
+            lineNumber: 105,
             columnNumber: 13
         }, this);
     }
@@ -301,7 +281,7 @@ function PaginaQuestionario() {
                         children: "Erro ao carregar questionário!"
                     }, void 0, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 141,
+                        lineNumber: 120,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -309,7 +289,7 @@ function PaginaQuestionario() {
                         children: erro
                     }, void 0, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 142,
+                        lineNumber: 121,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -318,18 +298,18 @@ function PaginaQuestionario() {
                         children: "Tentar Novamente"
                     }, void 0, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 143,
+                        lineNumber: 122,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/questionario/page.tsx",
-                lineNumber: 140,
+                lineNumber: 119,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 139,
+            lineNumber: 118,
             columnNumber: 13
         }, this);
     }
@@ -345,7 +325,7 @@ function PaginaQuestionario() {
                         children: "Nenhuma questão gerada."
                     }, void 0, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 158,
+                        lineNumber: 137,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -357,7 +337,7 @@ function PaginaQuestionario() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 159,
+                        lineNumber: 138,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -366,22 +346,21 @@ function PaginaQuestionario() {
                         children: "Tentar Novamente"
                     }, void 0, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 160,
+                        lineNumber: 139,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/questionario/page.tsx",
-                lineNumber: 157,
+                lineNumber: 136,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 156,
+            lineNumber: 135,
             columnNumber: 13
         }, this);
     }
-    // Renderização principal do questionário
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -396,13 +375,13 @@ function PaginaQuestionario() {
                             children: assunto
                         }, void 0, false, {
                             fileName: "[project]/src/app/questionario/page.tsx",
-                            lineNumber: 176,
+                            lineNumber: 154,
                             columnNumber: 41
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 175,
+                    lineNumber: 153,
                     columnNumber: 17
                 }, this),
                 questoes.map((questao, indice)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ComponenteQuestao$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -413,7 +392,7 @@ function PaginaQuestionario() {
                         mostrarGabarito: mostrarResultado
                     }, questao.id, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 180,
+                        lineNumber: 158,
                         columnNumber: 21
                     }, this)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -421,12 +400,11 @@ function PaginaQuestionario() {
                     children: !mostrarResultado ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: handleSubmit,
                         className: "bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105",
-                        // Desabilita o botão se não houver 10 questões ou se alguma resposta ainda estiver em -1
                         disabled: questoes.length !== 10 || respostasUsuario.some((resp)=>resp === -1),
                         children: "Enviar Respostas"
                     }, void 0, false, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 192,
+                        lineNumber: 170,
                         columnNumber: 25
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-lg shadow-md",
@@ -437,7 +415,7 @@ function PaginaQuestionario() {
                                 children: "Questionário Finalizado!"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 202,
+                                lineNumber: 179,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -449,7 +427,7 @@ function PaginaQuestionario() {
                                         children: pontuacao
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/questionario/page.tsx",
-                                        lineNumber: 203,
+                                        lineNumber: 180,
                                         columnNumber: 70
                                     }, this),
                                     " de ",
@@ -458,14 +436,14 @@ function PaginaQuestionario() {
                                         children: questoes.length
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/questionario/page.tsx",
-                                        lineNumber: 203,
+                                        lineNumber: 180,
                                         columnNumber: 134
                                     }, this),
                                     " questões."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 203,
+                                lineNumber: 180,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -474,29 +452,69 @@ function PaginaQuestionario() {
                                 children: "Fazer novo questionário"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/questionario/page.tsx",
-                                lineNumber: 204,
+                                lineNumber: 181,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-6 pt-4 border-t border-blue-200 text-blue-800 text-sm",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "font-semibold mb-2",
+                                        children: [
+                                            'Uma breve explicação sobre "',
+                                            assunto,
+                                            '":'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/questionario/page.tsx",
+                                        lineNumber: 190,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            'O livro "',
+                                            assunto,
+                                            '" é uma obra clássica que aborda temas como amadurecimento, relações familiares e busca por identidade. Através das jornadas de seus personagens, somos convidados a refletir sobre os desafios e alegrias da vida. Cada questão deste quiz foi elaborada para testar seu conhecimento sobre o enredo, os personagens e as mensagens principais da obra.'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/questionario/page.tsx",
+                                        lineNumber: 194,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "mt-3 text-xs italic",
+                                        children: "Continue explorando o mundo da literatura! A leitura sempre nos ensina algo novo."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/questionario/page.tsx",
+                                        lineNumber: 202,
+                                        columnNumber: 33
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/questionario/page.tsx",
+                                lineNumber: 189,
                                 columnNumber: 29
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/questionario/page.tsx",
-                        lineNumber: 201,
+                        lineNumber: 178,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/questionario/page.tsx",
-                    lineNumber: 190,
+                    lineNumber: 168,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/questionario/page.tsx",
-            lineNumber: 174,
+            lineNumber: 152,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/questionario/page.tsx",
-        lineNumber: 173,
+        lineNumber: 151,
         columnNumber: 9
     }, this);
 }

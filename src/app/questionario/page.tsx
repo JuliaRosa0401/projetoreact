@@ -1,11 +1,10 @@
 // src/app/questionario/page.tsx
-"use client"; // Importante: indica que é um Client Component
+"use client";
 
-import { useEffect, useState, useCallback } from 'react'; // Adicionado useCallback
+import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
-import ComponenteQuestao from '../../../components/ComponenteQuestao'; // Caminho relativo corrigido para sua estrutura
+import ComponenteQuestao from '../../../components/ComponenteQuestao';
 
-// Definindo as interfaces de dados
 interface Alternativa {
     texto: string;
     correta: boolean;
@@ -18,21 +17,16 @@ interface Questao {
 }
 
 export default function PaginaQuestionario() {
-    // Hooks do Next.js e React para gerenciar estado e navegação
-    const searchParams = useSearchParams(); // Para ler parâmetros da URL
-    const assunto = searchParams.get('assunto'); // Pega o assunto passado pela URL
+    const searchParams = useSearchParams();
+    const assunto = searchParams.get('assunto');
 
-    // Estados do componente
-    const [questoes, setQuestoes] = useState<Questao[]>([]); // Armazena as questões geradas
-    const [respostasUsuario, setRespostasUsuario] = useState<number[]>([]); // Armazena o índice da alternativa escolhida pelo usuário para cada questão
-    const [mostrarResultado, setMostrarResultado] = useState(false); // Controla a exibição do gabarito e pontuação
-    const [pontuacao, setPontuacao] = useState(0); // Pontuação final do usuário
-    const [carregando, setCarregando] = useState(true); // Indica se as questões estão sendo carregadas
-    const [erro, setErro] = useState<string | null>(null); // Armazena mensagens de erro
+    const [questoes, setQuestoes] = useState<Questao[]>([]);
+    const [respostasUsuario, setRespostasUsuario] = useState<number[]>([]);
+    const [mostrarResultado, setMostrarResultado] = useState(false);
+    const [pontuacao, setPontuacao] = useState(0);
+    const [carregando, setCarregando] = useState(true);
+    const [erro, setErro] = useState<string | null>(null);
 
-    // Função para buscar as questões da nossa API interna
-    // Usamos useCallback para memorizar a função e evitar recriações desnecessárias,
-    // otimizando o useEffect.
     const buscarQuestoes = useCallback(async () => {
         if (!assunto) {
             setErro("Assunto do livro não informado. Por favor, volte e informe um livro.");
@@ -40,79 +34,64 @@ export default function PaginaQuestionario() {
             return;
         }
 
-        setCarregando(true); // Ativa o estado de carregamento
-        setErro(null);       // Limpa qualquer erro anterior
+        setCarregando(true);
+        setErro(null);
 
         try {
-            // Realiza a chamada POST para nossa API Route
             const response = await fetch('/api/gerar-questionario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ assunto }), // Envia o assunto no corpo da requisição
+                body: JSON.stringify({ assunto }),
             });
 
-            // Verifica se a resposta da API foi bem-sucedida
             if (!response.ok) {
-                const errorData = await response.json(); // Pega a mensagem de erro do corpo da resposta
+                const errorData = await response.json();
                 throw new Error(errorData.error || `Erro ao gerar questionário: ${response.statusText}`);
             }
 
-            // Converte a resposta para JSON e tipa como um array de Questao
             const data: Questao[] = await response.json();
 
-            // Garante que estamos usando no máximo 10 questões, conforme o requisito
             const questoesLimitas = data.slice(0, 10);
             setQuestoes(questoesLimitas);
-            // Inicializa o array de respostas do usuário com -1 para cada questão
             setRespostasUsuario(new Array(questoesLimitas.length).fill(-1));
         } catch (err: any) {
-            // Captura e exibe erros que ocorrem durante a chamada ou processamento
             console.error("Falha ao buscar questões:", err);
             setErro(`Não foi possível gerar o questionário. Detalhes: ${err.message}`);
         } finally {
-            // Finaliza o estado de carregamento, independente do sucesso ou falha
             setCarregando(false);
         }
-    }, [assunto]); // A função `buscarQuestoes` só muda se o `assunto` mudar
+    }, [assunto]);
 
-    // useEffect para chamar `buscarQuestoes` quando o componente é montado
-    // ou quando a função `buscarQuestoes` (que depende do assunto) muda.
     useEffect(() => {
         console.log("useEffect na página do questionário disparado. Chamando buscarQuestoes.");
         buscarQuestoes();
-    }, [buscarQuestoes]); // Dispara a busca quando a dependência (buscarQuestoes) é atualizada
+    }, [buscarQuestoes]);
 
-    // Lida com a seleção de uma alternativa por parte do usuário
     const handleRespostaSelecionada = (idQuestao: number, indiceAlternativa: number) => {
         setRespostasUsuario(prevRespostas => {
             const novasRespostas = [...prevRespostas];
-            // Encontra o índice da questão no array de questões
             const indiceQuestao = questoes.findIndex(q => q.id === idQuestao);
             if (indiceQuestao !== -1) {
-                // Atualiza a resposta para a questão específica
                 novasRespostas[indiceQuestao] = indiceAlternativa;
             }
             return novasRespostas;
         });
     };
 
-    // Lida com o envio do questionário
     const handleSubmit = () => {
         let pontuacaoFinal = 0;
         questoes.forEach((questao, indice) => {
             const respostaDada = respostasUsuario[indice];
-            // Verifica se o usuário respondeu e se a resposta está correta
             if (respostaDada !== -1 && questao.alternativas[respostaDada]?.correta) {
                 pontuacaoFinal++;
             }
         });
-        setPontuacao(pontuacaoFinal);      // Define a pontuação final
-        setMostrarResultado(true); // Exibe o gabarito e a pontuação
+        setPontuacao(pontuacaoFinal);
+        setMostrarResultado(true);
     };
 
-    // Renderização condicional baseada nos estados
     if (!assunto) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100 text-red-600 font-bold p-4 text-center">
@@ -141,7 +120,7 @@ export default function PaginaQuestionario() {
                     <p className="font-bold text-lg">Erro ao carregar questionário!</p>
                     <p className="mt-2 text-sm">{erro}</p>
                     <button
-                        onClick={buscarQuestoes} // Permite tentar novamente
+                        onClick={buscarQuestoes}
                         className="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out"
                     >
                         Tentar Novamente
@@ -152,7 +131,7 @@ export default function PaginaQuestionario() {
     }
 
     if (questoes.length === 0 && !carregando && !erro) {
-         return (
+          return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
                 <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-md max-w-md w-full" role="alert">
                     <p className="font-bold text-lg">Nenhuma questão gerada.</p>
@@ -168,7 +147,6 @@ export default function PaginaQuestionario() {
         );
     }
 
-    // Renderização principal do questionário
     return (
         <div className="min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
@@ -192,7 +170,6 @@ export default function PaginaQuestionario() {
                         <button
                             onClick={handleSubmit}
                             className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-                            // Desabilita o botão se não houver 10 questões ou se alguma resposta ainda estiver em -1
                             disabled={questoes.length !== 10 || respostasUsuario.some(resp => resp === -1)}
                         >
                             Enviar Respostas
@@ -202,11 +179,32 @@ export default function PaginaQuestionario() {
                             <p className="font-bold text-lg">Questionário Finalizado!</p>
                             <p className="text-xl mt-2">Você acertou <span className="font-extrabold text-2xl">{pontuacao}</span> de <span className="font-extrabold text-2xl">{questoes.length}</span> questões.</p>
                             <button
-                                onClick={() => window.location.href = '/'} // Volta para a página inicial para um novo questionário
+                                onClick={() => window.location.href = '/'}
                                 className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out"
                             >
                                 Fazer novo questionário
                             </button>
+
+                            {/* --- INÍCIO DA NOVA SEÇÃO DE EXPLICAÇÃO --- */}
+                            <div className="mt-6 pt-4 border-t border-blue-200 text-blue-800 text-sm">
+                                <p className="font-semibold mb-2">Uma breve explicação sobre "{assunto}":</p>
+                                {/* Aqui você pode adicionar o texto da explicação. */}
+                                {/* Você pode tornar isso dinâmico buscando a explicação da API, */}
+                                {/* ou ter textos pré-definidos para alguns livros, ou um texto genérico. */}
+                                <p>
+                                    O livro "{assunto}" é uma obra clássica que aborda temas como amadurecimento,
+                                    relações familiares e busca por identidade. Através das jornadas de seus
+                                    personagens, somos convidados a refletir sobre os desafios e alegrias da vida.
+                                    Cada questão deste quiz foi elaborada para testar seu conhecimento sobre o enredo,
+                                    os personagens e as mensagens principais da obra.
+                                </p>
+                                {/* Exemplo de como você poderia adicionar um link para mais informações */}
+                                <p className="mt-3 text-xs italic">
+                                    Continue explorando o mundo da literatura! A leitura sempre nos ensina algo novo.
+                                </p>
+                            </div>
+                            {/* --- FIM DA NOVA SEÇÃO DE EXPLICAÇÃO --- */}
+
                         </div>
                     )}
                 </div>
